@@ -1,0 +1,18 @@
+# Sammlungen und Archive
+
+[Archiv für Geld- und Bodenreform](https://uol.de/bis/archive-und-sammlungen/archiv-fuer-geld-und-bodenreform)
+[Carl von Ossietzky-Archiv](https://uol.de/bis/archive-und-sammlungen/carl-von-ossietzky-archiv)
+[DEFA-Filme](https://uol.de/bis/archive-und-sammlungen/defa-filme)
+[Englische Heftromane des 19. Jahrhunderts](https://uol.de/bis/archive-und-sammlungen/englische-heftromane-des-19-jahrhunderts)
+[Fernsehmitschnitte](https://uol.de/bis/archive-und-sammlungen/fernsehmitschnitte)
+[Flugblattsammlung](https://uol.de/bis/archive-und-sammlungen/flugblattsammlung)
+[Historische Sammelbilder der Firma Liebig](https://uol.de/bis/archive-und-sammlungen/historische-sammelbilder-der-firma-liebig)
+[Jazz-Schallplatten](https://uol.de/bis/archive-und-sammlungen/jazz-schallplatten)
+[Karl-Jaspers-Bibliothek](https://uol.de/bis/archive-und-sammlungen/karl-jaspers-bibliothek)
+[Kinder- und Jugendbücher](https://uol.de/bis/archive-und-sammlungen/kinder-und-jugendbuecher)
+[Leihbibliothek Manitius (19. Jahrhundert)](https://uol.de/bis/archive-und-sammlungen/leihbibliothek-manitius-19-jahrhundert)
+[Mikrofiches und Mikrofilme](https://uol.de/bis/archive-und-sammlungen/mikrofiches-und-mikrofilme)
+[Sammlung Asche](https://uol.de/bis/archive-und-sammlungen/sammlung-asche)
+[Schellackplatten Unterhaltungsmusik](https://uol.de/bis/archive-und-sammlungen/schellackplatten-unterhaltungsmusik)
+[Testsammlung](https://uol.de/bis/archive-und-sammlungen/testsammlung)
+[Universitätsarchiv](https://uol.de/uni-archiv)
