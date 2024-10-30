@@ -1,5 +1,7 @@
 # Code Beispiele
 
+Bevor die Beispiele durchgeführt werden könnnen, müssen die gezeigten Schritte in der README durchgeführt werden.
+
 ## SSH Login auf Remote Server
 
 SSH (Secure Shell) ermöglicht eine sichere Verbindung zu einem entfernten Server. Hier sind die Schritte für den Login:
