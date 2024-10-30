@@ -50,7 +50,7 @@ pip install -r requirements.txt
 ```
 
 ## Sarten des Ollama-Servers
-Der Ollama-Server muss gestartet werden, bevor die Code Beispiele und generell jeweilig ausgewählte LLM-Modelle verwendet werden können. Dazu wird das Script `run_ollama.sh` verwendet.
+Der Ollama-Server muss gestartet werden, bevor die Code Beispiele und generell jeweilig ausgewählte LLM-Modelle genutzt werden können. Dazu wird das Script `run_ollama.sh` verwendet.
 
 ### Ausführung des Scripts
 

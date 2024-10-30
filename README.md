@@ -46,6 +46,10 @@ Die Implementierung basiert auf einer RAG-Pipeline (Retrieval Augmented Generati
    - Kontextintegration
    - *Frameworks:* LangChain, LlamaIndex
 
+8. **User Interface**
+   - Interaktion mit dem Chatbot
+   - F*Frameworks:* streamlit
+
 ### Ablauf der Pipeline:
 ```
 [Nutzeranfrage] 
