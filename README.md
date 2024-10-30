@@ -1,78 +1,68 @@
-# SSH Login und Server-Nutzung Guide
+![logo](assets/bilder/uni_chatbot.jpg)
 
-## SSH Login auf Remote Server
+# Entwicklung eines Universitäts-Chatbots mittels RAG-Pipeline
 
-SSH (Secure Shell) ermöglicht eine sichere Verbindung zu einem entfernten Server. Hier sind die Schritte für den Login:
+## Übersicht Kurs
+Ziel ist es, einen universitätsbezogenen Chatbot zu entwickeln, an den Studierende sich richten können, um spezifische Informationen zur Universität, angebotenen Studiengängen, Prüfungsordnungen oder Sonstigen zu erhalten.
 
-1. Falls keine IDE vorhanden, installiere VS Code (https://code.visualstudio.com/download)
-2. Installiere die Remote SSH Erweiterung in VS Code
-3. Verbinde dich mit dem Remote Server über den Befehl:
-   ```
-   ssh benutzer@serveradresse (Nutzerdaten werden separat in der Veranstaltung ausgegeben.)
-   ```
+## RAG-Pipeline
+Die Implementierung basiert auf einer RAG-Pipeline (Retrieval Augmented Generation), die es ermöglicht, große Language Models (LLMs) mit spezifischen, aktuellen Daten anzureichern.
 
-## Allgemeine Befehle
+### Hauptkomponenten der RAG-Pipeline:
 
-Hier sind einige wichtige Befehle und ihre Erklärungen:
+1. **Datenerfassung und -aufbereitung**
+   - Extraktion aus PDFs
+   - Verarbeitung strukturierter Daten (CSV, Excel)
+   - Crawling von Webseiten (fortgeschritten)
+   - *Frameworks:*LLamaIndex, BeautifulSoup, Scrapy, PyPDF2, pandas
 
-- `mkdir`: Erstellt ein neues Verzeichnis
-- `cd`: Wechselt das aktuelle Verzeichnis
-- `htop`: Zeigt eine interaktive Prozess- und Systemressourcenübersicht
-- `nvidia-smi`: Zeigt Informationen über NVIDIA GPUs an
+2. **Chunking und Preprocessing**
+   - Aufteilung der Dokumente in verarbeitbare Einheiten
+   - Textbereinigung und Normalisierung
+   - *Frameworks:* LLamaIndex, LangChain, NLTK, spaCy
 
-## Anlegen einer Python venv
+3. **Embedding-Generierung**
+   - Umwandlung von Text in Vektoren
+   - Optimierung der Vektorrepräsentationen
+   - *Frameworks:* LlamaIndex, LangChain
 
-Eine venv (virtuelle Umgebung) ist eine isolierte Python-Umgebung, die es ermöglicht, projektspezifische Abhängigkeiten zu installieren, ohne das globale System zu beeinflussen.
+4. **Vektorspeicher**
+   - Effiziente Speicherung der Embeddings
+   - Ähnlichkeitssuche
+   - Kann mithilfe von Frameworks wie LlamaIndex oder LangChain erreicht werden, oder in separaten Vektordatenbanken wie *FAISS, Pinecone, Chroma, Weaviate*
 
-```bash
-mkdir venvs
-cd venvs
-python3.12 -m venv uni_chatbot
-source /home/your_username/venvs/uni_chatbot/bin/activate
+5. **Retrieval-System**
+   - Semantische Suche
+   - Kontextauswahl
+   - *Frameworks:* LlamaIndex, LangChain
+
+6. **Large Language Model (LLM)**
+   - Verarbeitung der Anfragen
+   - Generierung der Antworten
+   - *Frameworks:* Ollama
+
+7. **Prompt Engineering**
+   - Strukturierung der Systemanweisungen
+   - Kontextintegration
+   - *Frameworks:* LangChain, LlamaIndex
+
+### Ablauf der Pipeline:
 ```
-
-## Laden und Entpacken des Codes eines Git-Repos
-
-Git ist ein Versionskontrollsystem. Mit dem Klonen eines Repos kopierst du ein bestehendes Repository auf deinen lokalen Rechner oder Server. In diesem Fall wird das Repo jedoch nicht gecloned, der Code wird direkt als ZIP heruntergeladen und im entsprechenden Verzeichnis entpackt.
-
-```bash
-wget https://github.com/jahewite/Re-Engineering-von-Gesch-ftsprozessen/archive/refs/heads/master.zip
-unzip /pfad/zum/verzeichnis
+[Nutzeranfrage] 
+    → [Embedding der Anfrage]
+    → [Ähnlichkeitssuche im Vektorspeicher]
+    → [Retrieval relevanter Dokumente]
+    → [Prompt-Konstruktion mit Kontext]
+    → [LLM-Verarbeitung]
+    → [Generierte Antwort]
 ```
+Frameworks wie LlamaIndex oder LangChain bieten für sämtliche Schritte entsprechende Lösungen, es lohnt sich jedoch auch, einen Blick auf andere Frameworks zu werden, die einzelne Schritte vielleicht noch tiefergehende Lösungen bieten.
 
-## Installation requirements.txt
+Code-Beispiele können im [code](./code/) Verzeichnis eingesehen werden.
 
-Eine `requirements.txt` Datei listet alle Python-Pakete auf, die für ein Projekt benötigt werden. Sie erleichtert die Installation aller notwendigen Abhängigkeiten.
-```bash
-pip install -r requirements.txt
-```
-
-## Verwendung von Jupyter Notebooks
-
-Jupyter Notebooks sind interaktive Dokumente, die Code, Visualisierungen und Text kombinieren.
-
-1. Installiere die Jupyter Extension in VS Code
-2. Führe folgende Befehle aus:
-   ```bash
-   ipython kernel install --user --name uni_chatbot
-   ```
-
-## (Optional) Anpassung der .bashrc
-
-Die `.bashrc` ist eine Konfigurationsdatei für die Bash-Shell, die bei jedem Start einer neuen Shell-Sitzung ausgeführt wird.
-
-1. Öffne die Datei mit einem Texteditor:
-   ```bash
-   nano ~/.bashrc
-   ```
-2. Navigiere zum Ende der Datei
-3. Füge folgende Zeilen hinzu:
-   ```bash
-   # activate venv
-   source /home/username/venvs/uni_chatbot/bin/activate
-   ```
-4. Speichere und schließe die Datei (STRG+X, dann Y, dann Enter)
-5. Aktiviere die Änderungen:
-   ```bash
-   source ~/.bashrc
-   ```
+### Hinweise:
+- Integration universitätsspezifischer Daten
+- Berücksichtigung zu Fragestellungen bezüglich Datenschutzaspekten
+- Mehrsprachige Unterstützung (Deutsch/Englisch)
+- Personalisierung der Antworten
+- Aktualisierbarkeit der Wissensbasis
