@@ -49,6 +49,59 @@ Eine `requirements.txt` Datei listet alle Python-Pakete auf, die für ein Projek
 pip install -r requirements.txt
 ```
 
+## Sarten des Ollama-Servers
+Der Ollama-Server muss gestartet werden, bevor die Code Beispiele und generell jeweilig ausgewählte LLM-Modelle verwendet werden können. Dazu wird das Script `run_ollama.sh` verwendet.
+
+### Ausführung des Scripts
+
+1. Navigiere ins Root-Verzeichnis des Projekts.
+2. Gebe dem Script Ausführungsrechte:
+   ```bash
+   chmod +x run_ollama.sh
+   ```
+
+3. Starte das Script:
+   ```bash
+   ./run_ollama.sh
+   ```
+
+### Funktionen des Scripts
+
+Das Script führt automatisch folgende Aktionen aus:
+
+- Startet den Ollama-Server in einer Screen-Session
+- Überprüft und lädt bei Bedarf die erforderlichen Modelle (llama3:8b und llama3:70b)
+- Zeigt Informationen über verfügbare Modelle
+- Bietet Anleitungen zur Screen-Session-Verwaltung
+
+### Screen-Session Management
+
+Nach dem Start läuft der Server in einer Screen-Session namens 'ollama_session'. Wichtige Befehle:
+
+- Liste aller aktiven Sessions anzeigen:
+  ```bash
+  screen -ls
+  ```
+- Session verlassen ohne zu beenden (detach):
+  ```bash
+  # Drücke Ctrl-A, dann D
+  ```
+- Zur Session zurückkehren:
+  ```bash
+  screen -r ollama_session
+  ```
+- Session komplett beenden:
+  ```bash
+  # In der Session: Drücke Ctrl-A, dann K, dann Y
+  ```
+
+### Zusätzliche Modelle laden
+
+Um weitere Modelle zu laden, stelle sicher das ein Ollama-Server läuft und führe folgenden Befehl in einem Terminal-Fenster aus:
+```bash
+ollama pull 'füge_modell_namen_ein'
+```
+
 ## Verwendung von Jupyter Notebooks
 
 Jupyter Notebooks sind interaktive Dokumente, die Code, Visualisierungen und Text kombinieren.
@@ -58,10 +111,11 @@ Jupyter Notebooks sind interaktive Dokumente, die Code, Visualisierungen und Tex
    ```bash
    ipython kernel install --user --name uni_chatbot
    ```
+3. Im jeweiligen Notebook, wähle die zuvor erstelle venv als Kernel aus.
 
-## (Optional) Anpassung der .bashrc
+## (Optional, aber empfohlen) Anpassung der .bashrc
 
-Die `.bashrc` ist eine Konfigurationsdatei für die Bash-Shell, die bei jedem Start einer neuen Shell-Sitzung ausgeführt wird.
+Die `.bashrc` ist eine Konfigurationsdatei für die Bash-Shell, die bei jedem Start einer neuen Shell-Sitzung ausgeführt wird. Mit dieser Anpassung wird die venv direkt bei SSH-Anmeldung aktiviert.
 
 1. Öffne die Datei mit einem Texteditor:
    ```bash
