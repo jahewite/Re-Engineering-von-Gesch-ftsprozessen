@@ -22,13 +22,17 @@ Hier sind einige wichtige Befehle und ihre Erklärungen:
 - `htop`: Zeigt eine interaktive Prozess- und Systemressourcenübersicht
 - `nvidia-smi`: Zeigt Informationen über NVIDIA GPUs an
 
+Im home-Verzeichnis folgende Verzeichnisse anlegen:
+- `data`
+- `envs`
+- `repos`
+
 ## Anlegen einer Python venv
 
 Eine venv (virtuelle Umgebung) ist eine isolierte Python-Umgebung, die es ermöglicht, projektspezifische Abhängigkeiten zu installieren, ohne das globale System zu beeinflussen.
 
 ```bash
-mkdir venvs
-cd venvs
+cd envs
 python3.12 -m venv uni_chatbot
 source /home/your_username/venvs/uni_chatbot/bin/activate
 ```
@@ -38,6 +42,7 @@ source /home/your_username/venvs/uni_chatbot/bin/activate
 Git ist ein Versionskontrollsystem. Mit dem Klonen eines Repos kopierst du ein bestehendes Repository auf deinen lokalen Rechner oder Server. In diesem Fall wird das Repo jedoch nicht gecloned, der Code wird direkt als ZIP heruntergeladen und im entsprechenden Verzeichnis entpackt.
 
 ```bash
+cd repos
 wget https://github.com/jahewite/Re-Engineering-von-Gesch-ftsprozessen/archive/refs/heads/master.zip
 unzip /pfad/zum/verzeichnis
 ```
@@ -48,6 +53,20 @@ Eine `requirements.txt` Datei listet alle Python-Pakete auf, die für ein Projek
 ```bash
 pip install -r requirements.txt
 ```
+
+## Überprüfen, ob ein 'ollama'-Server läuft
+```bash
+ps aux | grep ollama
+```
+
+Falls ein Server aktiv ist, müsste Folgendes (oder ähnliches) angezeigt werden:
+```bash
+jan-hen+ 1158328  0.0  0.0   9920  2488 ?        Ss   10:48   0:00 SCREEN -dmS ollama_session bash -c ollama serve; exec bash
+jan-hen+ 1158330  0.0  0.0   9864  3180 pts/5    Ss+  10:48   0:00 bash -c ollama serve; exec bash
+jan-hen+ 1158331  1.2  3.4 91024560 2295336 pts/5 Sl+ 10:48   0:13 ollama serve
+```
+
+Falls ein Server aktiv ist, kann der nachfolgende Punkt übersprungen werden.
 
 ## Sarten des Ollama-Servers
 Der Ollama-Server muss gestartet werden, bevor die Code Beispiele und generell jeweilig ausgewählte LLM-Modelle genutzt werden können. Dazu wird das Script `run_ollama.sh` verwendet.
