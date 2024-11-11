@@ -34,7 +34,7 @@ Eine venv (virtuelle Umgebung) ist eine isolierte Python-Umgebung, die es ermög
 ```bash
 cd envs
 python3.12 -m venv uni_chatbot
-source /home/your_username/venvs/uni_chatbot/bin/activate
+source /home/your_username/envs/uni_chatbot/bin/activate
 ```
 
 ## Laden und Entpacken des Codes eines Git-Repos
